@@ -1,0 +1,122 @@
+---
+title: Changelog
+description: Version history with recent updates, improvements, and changes to the platform.
+---
+
+## Recent Releases
+
+Stay up to date with the latest improvements to ParentSearch. Each release includes new features, bug fixes, and enhancements to help you build and access time capsules securely.
+
+<Update label="2024-11-15" description="v1.3.0" tags={["feature", "improvement"]}>
+## New Features
+
+- Added support for uploading multiple photos and videos in a single session to streamline time capsule creation.
+- Introduced searchable tags for keepsakes, allowing parents to organize memories by themes like "birthdays" or "holidays".
+
+## Improvements
+
+- Optimized search performance for partial name matches, reducing load times by up to 40%.
+- Enhanced mobile responsiveness for the search interface on tablets and phones.
+
+## Bug Fixes
+
+- Fixed issue where video messages failed to upload on slower connections.
+- Resolved display errors for time capsules viewed in private browsing mode.
+</Update>
+
+<Update label="2024-10-20" description="v1.2.0" tags={["feature", "bugfix"]}>
+## New Features
+
+- New privacy dashboard where users can review and manage capsule access logs.
+- Added option to schedule future message unlocks based on child age milestones.
+
+## Improvements
+
+- Updated UI with brand color accents (#c0272d) for better visual consistency.
+- Improved letter editor with rich text formatting and spell check.
+
+## Bug Fixes
+
+- Corrected search results pagination that skipped pages on large result sets.
+- Patched vulnerability in file upload validation for added security.
+</Update>
+
+<Update label="2024-09-10" description="v1.1.0" tags={["breaking", "improvement"]}>
+## Breaking Changes
+
+- Removed legacy email notifications; now uses in-app alerts only for better privacy.
+
+## New Features
+
+- Integrated first-name and partial last-name search with optional city filters.
+- Added time capsule preview mode before finalizing submissions.
+
+## Bug Fixes
+
+- Fixed login issues for users with special characters in names.
+- Resolved capsule sharing errors between parent and child portals.
+</Update>
+
+<Callout kind="info">
+Check the [Parent Portal](https://parentsearch.org/login) after updating to experience the latest features. Backup your time capsules regularly.
+</Callout>
+
+## Upcoming Features
+
+Track our roadmap for future enhancements focused on security, usability, and emotional support tools.
+
+<Board title="Q4 2024 Roadmap">
+  <BoardColumn title="Planned" color="0" icon="calendar">
+    <BoardCard title="AI-Powered Search Suggestions" description="Smart hints for names and locations" icon="sparkles" dueDate="2024-12-15" />
+    <BoardCard title="Voice-to-Text Messages" description="Convert spoken memories to text" icon="mic" />
+  </BoardColumn>
+  <BoardColumn title="In Progress" color="1" icon="loader">
+    <BoardCard title="Multi-Language Support" description="Translations for global users" icon="globe" author="Engineering Team" />
+  </BoardColumn>
+  <BoardColumn title="Researching" color="2" icon="search">
+    <BoardCard title="Counselor Integration" description="Connect with support professionals" createdAt="2024-11-01" />
+  </BoardColumn>
+</Board>
+
+## How to Stay Updated
+
+Follow these steps to ensure you receive notifications about new releases and updates.
+
+<Steps>
+  <Step title="Enable Notifications" icon="bell">
+    Log in to your account at [parentsearch.org/login](https://parentsearch.org/login).
+
+    Toggle on email and in-app alerts in your profile settings.
+  </Step>
+  <Step title="Check Release Notes" icon="book-open">
+    Visit this changelog page regularly or subscribe to updates via RSS.
+  </Step>
+  <Step title="Clear Cache" icon="refresh-cw">
+    After major releases, clear your browser cache for the best experience:
+
+````bash
+# For most browsers, use Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
+```
+````
+  </Step>
+</Steps>
+
+## Related Documentation
+
+<Columns cols={2}>
+  <Card title="Quickstart" icon="zap" href="/quickstart">
+    Get started building your first time capsule.
+  </Card>
+  <Card title="Privacy Guide" icon="shield" href="/privacy">
+    Learn how we protect your messages and data.
+  </Card>
+</Columns>
+
+<Expandable title="Known Issues" default-open="false">
+Currently tracking:
+
+- Rare upload timeouts on very large video files (`>500MB`). Workaround: Split into smaller clips.
+- Search filters may lag on first load in Safari; refresh resolves it.
+
+Report issues via the feedback form in your portal.
+</Expandable>

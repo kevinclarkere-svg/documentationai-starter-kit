@@ -1,0 +1,145 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: ParentSearch
+  license:
+    name: MIT
+servers:
+  - url: https://api.parentsearch.com/v1
+paths:
+  /searches:
+    get:
+      summary: List searches
+      description: Retrieves a paginated list of parent searches. Use the limit parameter to control page size.
+      operationId: listSearches
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          schema:
+            type: integer
+            format: int32
+      responses:
+        '200':
+          description: An paged array of searches
+          headers:
+            x-next:
+              description: A link to the next page of responses
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Searches'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    post:
+      summary: Create search
+      description: Creates a new parent search request in the system. Returns the created search on success.
+      operationId: createSearch
+      responses:
+        '201':
+          description: Null response
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /searches/{searchId}:
+    get:
+      summary: Get search by ID
+      description: Retrieves detailed information about a specific parent search by its unique identifier.
+      operationId: getSearchById
+      parameters:
+        - name: searchId
+          in: path
+          required: true
+          description: The id of the search to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Search'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /searches/{searchId}/results:
+    get:
+      summary: List results
+      description: Retrieves the result list for a specific parent search. Use this endpoint to inspect matching parent records and details.
+      operationId: listSearchResults
+      parameters:
+        - name: searchId
+          in: path
+          required: true
+          description: The id of the search to retrieve results for
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Results'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    Search:
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        tag:
+          type: string
+    Searches:
+      type: array
+      items:
+        $ref: '#/components/schemas/Search'
+    Result:
+      required:
+        - id
+        - name
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        tag:
+          type: string
+    Results:
+      type: array
+      items:
+        $ref: '#/components/schemas/Result'
+    Error:
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
